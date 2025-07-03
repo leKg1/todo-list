@@ -1,0 +1,43 @@
+services:
+  - type: web
+    name: backend
+    env: docker
+    plan: free
+    repo: https://github.com/leKg1/todo-list
+    branch: main
+    rootDir: backend
+    dockerfilePath: backend/Dockerfile
+    envVars:
+      - key: DB_HOST
+        value: todo-db:5432
+      - key: DB_USER
+        value: postgres
+      - key: DB_PASS
+        value: postgres
+      - key: DB_NAME
+        value: todo
+      - key: JWT_SECRET
+        value: your_jwt_secret
+      - key: PORT
+        value: 4000
+
+  - type: web
+    name: frontend
+    env: docker
+    plan: free
+    repo: https://github.com/leKg1/todo-list
+    branch: main
+    rootDir: frontend
+    dockerfilePath: frontend/Dockerfile
+    envVars:
+      - key: VITE_API_URL
+        value: https://backend-<render-generated-subdomain>.onrender.com
+
+  - type: pserv
+    name: todo-db
+    env: docker
+    plan: free
+    dockerfilePath: Dockerfile
+    rootDir: docker
+    dockerCommand: |
+      docker run --name todo-db -e POSTGRES_DB=todo -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:15

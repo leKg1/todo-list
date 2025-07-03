@@ -9,13 +9,15 @@ services:
     dockerfilePath: backend/Dockerfile
     envVars:
       - key: DB_HOST
-        value: todo-db:5432
+        value: dpg-d1j7fcre5dus73d09ps0-a
       - key: DB_USER
-        value: postgres
+        value: todo_db_ga6e_user
       - key: DB_PASS
-        value: postgres
+        value: 0etNV0pZzOFAtI3RuPr1dubJjiF3aWAk
       - key: DB_NAME
-        value: todo
+        value: todo_db_ga6e
+      - key: DB_PORT
+        value: 5432
       - key: JWT_SECRET
         value: your_jwt_secret
       - key: PORT
@@ -31,13 +33,4 @@ services:
     dockerfilePath: frontend/Dockerfile
     envVars:
       - key: VITE_API_URL
-        value: https://backend-<render-generated-subdomain>.onrender.com
-
-  - type: pserv
-    name: todo-db
-    env: docker
-    plan: free
-    dockerfilePath: Dockerfile
-    rootDir: docker
-    dockerCommand: |
-      docker run --name todo-db -e POSTGRES_DB=todo -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:15
+        value: https://backend-xxxx.onrender.com

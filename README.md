@@ -85,4 +85,15 @@ docker compose --profile dev -f docker/docker-compose.yml restart backend-dev
 
 ## Contacts / Контакты
 If you have any questions, feel free to contact me!
-Если возникнут вопросы — пишите, всегда рад помочь! 
+Если возникнут вопросы — пишите, всегда рад помочь!
+
+---
+
+## API Documentation (Swagger)
+
+Interactive API documentation is available via Swagger UI. You can explore and test all backend endpoints directly in your browser.
+
+- **Local:** http://localhost:4000/api-docs
+- **Production:** [your-backend-url]/api-docs
+
+This includes endpoints for authentication, task management, and admin actions. 

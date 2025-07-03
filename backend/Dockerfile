@@ -12,7 +12,7 @@ WORKDIR /app
 COPY --from=build /app/package*.json ./
 COPY --from=build /app/dist ./dist
 COPY --from=build /app/ormconfig.ts ./ormconfig.ts
-COPY --from=build /app/.env ./.env
+# COPY --from=build /app/.env ./.env
 RUN npm install --production
 EXPOSE 4000
 CMD ["node", "dist/server.js"]

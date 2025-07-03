@@ -6,7 +6,7 @@ services:
     repo: https://github.com/leKg1/todo-list
     branch: main
     rootDir: backend
-    dockerfilePath: backend/Dockerfile
+    dockerfilePath: Dockerfile
     envVars:
       - key: DB_HOST
         value: dpg-d1j7fcre5dus73d09ps0-a
@@ -30,7 +30,7 @@ services:
     repo: https://github.com/leKg1/todo-list
     branch: main
     rootDir: frontend
-    dockerfilePath: frontend/Dockerfile
+    dockerfilePath: Dockerfile
     envVars:
       - key: VITE_API_URL
         value: https://backend-xxxx.onrender.com
